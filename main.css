@@ -1,0 +1,30 @@
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: 20em;
+    text-align: center;
+    padding: 0em;
+}
+
+.container{
+/* width: 100em;
+height: 100em; */
+}
+
+.clockall{
+height:80%;
+width: 80%;
+margin: 0 auto;
+}
+
+body {
+  
+    background: black;
+
+
+}
+
+.pause-btn{
+    border-radius: 8px;
+    width: 50%;
+}
