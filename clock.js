@@ -13,8 +13,22 @@ playToggleBtn.addEventListener("click", () => (paused = !paused));
 const refresh = () => {
     //if and only if NOT paused, then keep the timer going
     if (!paused){
+
+        if (working){
+            if(time>=workTime){
+                working = false;
+                time = 0;
+            }
+        } else{
+            if(time >= breakTime){
+                working = true;
+                time = 0;
+            }
+        }
+
         time++;
         ticker.innerHTML = time;
+        status.innerHTML = working ? "Do working things" : "Relax";
     }
 };
 
