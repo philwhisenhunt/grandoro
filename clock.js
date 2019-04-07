@@ -1,4 +1,4 @@
-const workTIme = 30;
+const workTime = 30;
 const breakTime = 15;
 let time = 0;
 let paused = false;
