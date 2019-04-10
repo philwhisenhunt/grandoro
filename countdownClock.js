@@ -24,7 +24,7 @@ playToggleBtn.addEventListener("click", () => (paused = !paused));
 const refresh = () => {
     if(!paused){
         time--;
-
+        
        
         let leftover = time % 60;
         let minutesLeft = Math.floor(time/60);
@@ -39,6 +39,11 @@ const refresh = () => {
             time = 0;
             // ticker.innerHTML = time;
             document.body.style.backgroundColor = "red";
+
+            if(breakTime > 0){
+            breakTime--;
+            }
+    
 
 
         }
