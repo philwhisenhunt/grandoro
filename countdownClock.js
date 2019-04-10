@@ -42,10 +42,7 @@ const refresh = () => {
             // ticker.innerHTML = time;
             document.body.style.backgroundColor = "red";
 
-            if(breakTime > 0){
-            breakTime--;
-            console.log(breakTime);
-            }
+           
     
 
 
@@ -56,7 +53,10 @@ const refresh = () => {
        
 
     }
-   
+    if(breakTime >= 0){
+        breakTime--;
+        console.log("breakTime is " + breakTime);
+        }
 }
 
 const tickDown = () =>setInterval(refresh, 1000);
