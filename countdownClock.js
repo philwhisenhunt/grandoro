@@ -1,5 +1,7 @@
 //make 5 minutes in seconds
-let realTime = 60*5;
+//let realTime = 60*5;
+let realTime = 5;
+
 //use pad start?
 
 let time = (realTime);
@@ -42,6 +44,7 @@ const refresh = () => {
 
             if(breakTime > 0){
             breakTime--;
+            console.log(breakTime);
             }
     
 
