@@ -21,8 +21,8 @@ let minutesLeft = Math.floor(time/60);
 console.log(minutesLeft);
 //gets the time to start at the right thing
 // ticker.innerHTML = time;
-tickerMinutes.innerHTML = minutesLeft;
-tickerSeconds.innerHTML = leftover;
+tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
 
 let paused = false;
 let working = true;
@@ -38,9 +38,9 @@ const refresh = () => {
        
         let leftover = time % 60;
         let minutesLeft = Math.floor(time/60);
-        tickerMinutes.innerHTML = minutesLeft;
+        tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
         console.log("The minutesLeft variable is " + minutesLeft);
-        tickerSeconds.innerHTML = leftover;
+        tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
        }
        
         if(time <= 0){
@@ -53,8 +53,8 @@ const refresh = () => {
             if(breakTime >= 0 && time == 0 ){
                 //addIt.style.visibility = "visible";
                 //removeIt.style.visibility = "hidden";
-                breakMinutes.innerHTML = Math.floor(time/60);
-                breakSeconds.innerHTML = breakTime % 60;
+                breakMinutes.innerHTML = (Math.floor(time/60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}));
+                breakSeconds.innerHTML = (breakTime % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
                 hstatus.innerHTML = "Breaking";
 
                 breakTime--;
