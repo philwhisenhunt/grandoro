@@ -4,6 +4,7 @@ h1{
     font-size: 15em;
     text-align: center;
     padding: 0em;
+    margin: 0em;
 }
 
 .container{
@@ -44,4 +45,27 @@ body {
     margin: 0 auto;
     float: center;
     text-align: center;
+}
+
+h5{
+    text-align: center;
+    color: white;
+    font-size: 5em;
+}
+
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: 5em;
+    text-align: center;
+    padding: 0em;
+}
+
+#breakall{
+    visibility: visible; 
+    /* change to hidden later if don't want break to appear at first */
+}
+
+#clockshow{
+    visibility: visible;
 }
