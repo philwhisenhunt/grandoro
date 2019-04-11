@@ -13,12 +13,12 @@ status = "onbreak"
 
 //make a working or breaking status, or make a third one for paused. 
 //make as a string
-let leftover = workTime % 60;
+let seconds = workTime % 60;
 let minutesLeft = Math.floor(workTime/60);
 console.log(minutesLeft);
 
 tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
-tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+tickerSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
 
 let paused = false;
 let working = true;
@@ -38,12 +38,12 @@ const refresh = () => {
             hstatus.innerHTML = "Working";
             //console.log("With pad start time is" + );
         
-            let leftover = workTime % 60;
+            let seconds = workTime % 60;
             let minutesLeft = Math.floor(workTime/60);
             // minutesLeft = Math.abs(minutesLeft);
             tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
             console.log("The minutesLeft variable is " + minutesLeft);
-            tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+            tickerSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
        }
        
         else{
