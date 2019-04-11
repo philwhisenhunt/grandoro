@@ -64,6 +64,7 @@ const refresh = () => {
                 
         }
         if(breakTime < 0 && time == 0){
+            breakTime = 0;
             console.log("At this moment breakTime is " + breakTime);
             document.body.style.backgroundColor = "#98ff98";
             hstatus.innerHTML = "Neither working nor breaking";
@@ -73,7 +74,7 @@ const refresh = () => {
     }
 
     else{
-       
+       //do nothing
 
     }
     
