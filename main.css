@@ -2,7 +2,7 @@
 h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
-    font-size: 15em;
+    font-size: 10em;
     text-align: center;
     padding: 0em;
     margin: 0em;
@@ -29,7 +29,7 @@ body {
 
 .pause-btn{
     border-radius: 8px;
-    width: 50%;
+    width: 20%;
    
 
     background-color: white;

@@ -34,6 +34,8 @@ const refresh = () => {
         if(working){
             workTime--;
             console.log("workTime is: " + workTime);
+            document.body.style.backgroundColor = "black";
+            hstatus.innerHTML = "Working";
             //console.log("With pad start time is" + );
         
             let leftover = workTime % 60;
@@ -70,6 +72,9 @@ const refresh = () => {
 
     else{
        //do nothing
+       hstatus.innerHTML = "Paused";
+       console.log("At this moment breakTime is " + breakTime);
+       document.body.style.backgroundColor = "#404040";
 
     }
     
