@@ -1,15 +1,8 @@
-//make 5 minutes in seconds
-//let realTime = 60*5;
 let realTime = 2;
-
-//use pad start?
 
 let time = (realTime);
 const addIt = document.getElementById("breakall");
 const removeIt = document.getElementById("clockshow");
-
-
-
 
 let workTime = 25;
 let breakTime = 5;
@@ -42,15 +35,11 @@ const refresh = () => {
         console.log("The minutesLeft variable is " + minutesLeft);
         tickerSeconds.innerHTML = leftover;
        }
-        /*
-        console.log("time is "+ time);
-        console.log("minutesLeft is " + minutesLeft);
-        console.log("leftover is" + leftover);  
-        */
+       
         if(time <= 0){
             
             time = 0;
-            // ticker.innerHTML = time;
+            
             document.body.style.backgroundColor = "red";
             //paused = true;
 
@@ -63,9 +52,6 @@ const refresh = () => {
                 breakTime--;
                 console.log("breakTime is " + breakTime);
                 }
-    
-
-
         }
         
 
