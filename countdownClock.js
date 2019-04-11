@@ -56,7 +56,8 @@ workBreakBtn.addEventListener("click", function togglePause(){
 
 const refresh = () => {
     if(!paused){
-        
+        workBreakBtn.style.visibility = "visible";
+
 
         
 
@@ -91,6 +92,7 @@ const refresh = () => {
                 hstatus.innerHTML = "Working";
                 pauseResume.innerHTML = "Pause";
                 workBreakBtn.innerHTML = "Break";
+                
                 //console.log("With pad start time is" + );
             
                 let seconds = workTime % 60;
@@ -139,6 +141,7 @@ const refresh = () => {
     else{
        //do nothing
        hstatus.innerHTML = "Paused";
+       workBreakBtn.style.visibility = "hidden";
        //console.log("At this moment breakTime is " + breakTime);
        document.body.style.backgroundColor = "#404040";
        pauseResume.innerHTML = "Resume";
