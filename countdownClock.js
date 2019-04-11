@@ -3,9 +3,16 @@ let realTime = 2;
 let time = (realTime);
 const addIt = document.getElementById("breakall");
 const removeIt = document.getElementById("clockshow");
+const hstatus = document.getElementById("hstatus");
 
 let workTime = 25;
-let breakTime = 5;
+let breakTime = 1;
+
+//paused is separate
+let status = "working";
+status = "onbreak"
+//status = "paused";
+
 
 //make a working or breaking status, or make a third one for paused. 
 //make as a string
@@ -48,10 +55,18 @@ const refresh = () => {
                 //removeIt.style.visibility = "hidden";
                 breakMinutes.innerHTML = Math.floor(time/60);
                 breakSeconds.innerHTML = breakTime % 60;
+                hstatus.innerHTML = "Breaking";
 
                 breakTime--;
                 console.log("breakTime is " + breakTime);
                 }
+
+                
+        }
+        if(breakTime < 0 && time == 0){
+            console.log("At this moment breakTime is " + breakTime);
+            document.body.style.backgroundColor = "#98ff98";
+            hstatus.innerHTML = "Neither working nor breaking";
         }
         
 
