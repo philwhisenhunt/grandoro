@@ -1,12 +1,9 @@
-let realTime = 2;
-
-let time = (realTime);
+let workTime = 2;
+let breakTime = 0;
 const addIt = document.getElementById("breakall");
 const removeIt = document.getElementById("clockshow");
 const hstatus = document.getElementById("hstatus");
 
-let workTime = 25;
-let breakTime = 0;
 
 //paused is separate
 let status = "working";
@@ -16,11 +13,10 @@ status = "onbreak"
 
 //make a working or breaking status, or make a third one for paused. 
 //make as a string
-let leftover = time % 60;
-let minutesLeft = Math.floor(time/60);
+let leftover = workTime % 60;
+let minutesLeft = Math.floor(workTime/60);
 console.log(minutesLeft);
-//gets the time to start at the right thing
-// ticker.innerHTML = time;
+
 tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
 tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
 
@@ -36,22 +32,23 @@ const refresh = () => {
     if(!paused){
 
         if(working){
-        time--;
-        console.log("time is: " + time);
-        //console.log("With pad start time is" + );
-       
-        let leftover = time % 60;
-        let minutesLeft = Math.floor(time/60);
-        tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
-        console.log("The minutesLeft variable is " + minutesLeft);
-        tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+            workTime--;
+            console.log("workTime is: " + workTime);
+            //console.log("With pad start time is" + );
+        
+            let leftover = workTime % 60;
+            let minutesLeft = Math.floor(workTime/60);
+            // minutesLeft = Math.abs(minutesLeft);
+            tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+            console.log("The minutesLeft variable is " + minutesLeft);
+            tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
        }
        
         else{
             
             document.body.style.backgroundColor = "#00ace6";
             breakTime++;
-            breakMinutes.innerHTML = (Math.floor(time/60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}));
+            breakMinutes.innerHTML = (Math.floor(breakTime/60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}));
             breakSeconds.innerHTML = (breakTime % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
             hstatus.innerHTML = "Breaking";
 
@@ -61,12 +58,12 @@ const refresh = () => {
 
                 
         }
-        if(breakTime < 0 && time == 0){
-            breakTime = 0;
-            console.log("At this moment breakTime is " + breakTime);
-            document.body.style.backgroundColor = "#98ff98";
-            hstatus.innerHTML = "Neither working nor breaking";
-        }
+        // if(breakTime < 0 && time == 0){
+        //     breakTime = 0;
+        //     console.log("At this moment breakTime is " + breakTime);
+        //     document.body.style.backgroundColor = "#98ff98";
+        //     hstatus.innerHTML = "Neither working nor breaking";
+        // }
         
 
     }
