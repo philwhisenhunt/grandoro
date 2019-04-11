@@ -6,7 +6,7 @@ const removeIt = document.getElementById("clockshow");
 const hstatus = document.getElementById("hstatus");
 
 let workTime = 25;
-let breakTime = 1;
+let breakTime = 0;
 
 //paused is separate
 let status = "working";
@@ -26,12 +26,16 @@ tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits
 
 let paused = false;
 let working = true;
+
 const playToggleBtn = document.getElementById("pause");
+const workBreakBtn = document.getElementById("workBreak")
 playToggleBtn.addEventListener("click", () => (paused = !paused));
+workBreakBtn.addEventListener("click", () => (working = !working));
 
 const refresh = () => {
     if(!paused){
-        if(time>0){
+
+        if(working){
         time--;
         console.log("time is: " + time);
         //console.log("With pad start time is" + );
@@ -43,23 +47,17 @@ const refresh = () => {
         tickerSeconds.innerHTML = leftover.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
        }
        
-        if(time <= 0){
+        else{
             
-            time = 0;
+            document.body.style.backgroundColor = "#00ace6";
+            breakTime++;
+            breakMinutes.innerHTML = (Math.floor(time/60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}));
+            breakSeconds.innerHTML = (breakTime % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+            hstatus.innerHTML = "Breaking";
+
             
-            document.body.style.backgroundColor = "red";
-            //paused = true;
-
-            if(breakTime >= 0 && time == 0 ){
-                //addIt.style.visibility = "visible";
-                //removeIt.style.visibility = "hidden";
-                breakMinutes.innerHTML = (Math.floor(time/60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}));
-                breakSeconds.innerHTML = (breakTime % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
-                hstatus.innerHTML = "Breaking";
-
-                breakTime--;
-                console.log("breakTime is " + breakTime);
-                }
+            console.log("breakTime is " + breakTime);
+                
 
                 
         }
