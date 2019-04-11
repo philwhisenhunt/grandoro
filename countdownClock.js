@@ -1,8 +1,11 @@
 let workTime = 2;
 let breakTime = 0;
+let storedBreakTime = 0;
 const addIt = document.getElementById("breakall");
 const removeIt = document.getElementById("clockshow");
 const hstatus = document.getElementById("hstatus");
+const pauseResume = document.getElementById("pause_resume");
+const breakCount = document.getElementById("totalBreaked");
 
 
 //paused is separate
@@ -23,10 +26,19 @@ tickerSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits:
 let paused = false;
 let working = true;
 
-const playToggleBtn = document.getElementById("pause");
-const workBreakBtn = document.getElementById("workBreak")
+const playToggleBtn = document.getElementById("pause_resume");
+const workBreakBtn = document.getElementById("workBreak");
 playToggleBtn.addEventListener("click", () => (paused = !paused));
-workBreakBtn.addEventListener("click", () => (working = !working));
+
+
+//workBreakBtn.addEventListener("click", () => (working = !working));
+workBreakBtn.addEventListener("click", function togglePause(){
+    working = !working;
+    console.log("storedBreakTime before was " + storedBreakTime);
+    console.log("BreakTime is " + breakTime);
+    storedBreakTime = storedBreakTime + breakTime;
+    console.log("storedBreakTime after is " + storedBreakTime);
+});
 
 const refresh = () => {
     if(!paused){
@@ -36,6 +48,8 @@ const refresh = () => {
             console.log("workTime is: " + workTime);
             document.body.style.backgroundColor = "black";
             hstatus.innerHTML = "Working";
+            pauseResume.innerHTML = "Pause";
+            workBreakBtn.innerHTML = "Break";
             //console.log("With pad start time is" + );
         
             let seconds = workTime % 60;
@@ -44,6 +58,8 @@ const refresh = () => {
             tickerMinutes.innerHTML = minutesLeft.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
             console.log("The minutesLeft variable is " + minutesLeft);
             tickerSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+
+            breakCount.innerHTML = storedBreakTime;
        }
        
         else{
@@ -53,6 +69,7 @@ const refresh = () => {
             breakMinutes.innerHTML = (Math.floor(breakTime/60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false}));
             breakSeconds.innerHTML = (breakTime % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
             hstatus.innerHTML = "Breaking";
+            workBreakBtn.innerHTML = "Resume Work";
 
             
             console.log("breakTime is " + breakTime);
@@ -75,6 +92,7 @@ const refresh = () => {
        hstatus.innerHTML = "Paused";
        console.log("At this moment breakTime is " + breakTime);
        document.body.style.backgroundColor = "#404040";
+       pauseResume.innerHTML = "Resume";
 
     }
     
