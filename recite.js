@@ -2,7 +2,8 @@ let time = 0;
 
 const count = () => {
 time++;
+console.log(time);
 }
 
-const countdown = () => setInterval(refresh, 1000);
+const countdown = () => setInterval(count, 1000);
 countdown();
