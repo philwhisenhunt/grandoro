@@ -4,3 +4,5 @@ const count = () => {
 time++;
 }
 
+const countdown = () => setInterval(refresh, 1000);
+countdown();
